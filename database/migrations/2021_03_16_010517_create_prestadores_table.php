@@ -15,7 +15,7 @@ class CreatePrestadoresTable extends Migration
     {
         Schema::create('prestadores', function (Blueprint $table) {
             $table->id();
-            $table->foreign('pessoa_id')->references('id')->on('pessoa');
+            $table->foreign('pessoas_id')->references('id')->on('pessoas');
             $table->foreign('redes_sociais_id')->references('id')->on('redes_sociais');
             $table->softDeletes();
             $table->timestamps();

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePessoasTable extends Migration
+class CreateContemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreatePessoasTable extends Migration
      */
     public function up()
     {
-        Schema::create('pessoas', function (Blueprint $table) {
+        Schema::create('contems', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('email');
-            $table->integer('cpf');
-            $table->integer('telefone');
+            $table->foreign('prestadores_id')->references('id')->on('prestadores');
+            $table->foreign('redes_sociais_id')->references('id')->on('redes_sociais');
             $table->timestamps();
-            $table->softDeletes(); // para somente inativar dados ao invés de deletar
         });
     }
 
@@ -31,6 +28,6 @@ class CreatePessoasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pessoas');
+        Schema::dropIfExists('contems');
     }
 }

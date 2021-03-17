@@ -16,9 +16,8 @@ class CreateConversasTable extends Migration
         Schema::create('conversas', function (Blueprint $table) {
             $table->id();
             $table->text('mensagem', 252);
-
-            $table->foreign('cliente_id')->references('id')->on('cliente');
-            $table->foreign('prestador_id')->references('id')->on('prestador');
+            $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->foreign('prestadores_id')->references('id')->on('prestadores');
             $table->timestamps();
         });
     }

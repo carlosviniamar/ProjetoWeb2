@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContemsTable extends Migration
+class CreateAbrangeAvaliacaosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateContemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contems', function (Blueprint $table) {
+        Schema::create('abrange__avaliacaos', function (Blueprint $table) {
             $table->id();
-            $table->foreign('prestadores_id')->references('id')->on('prestadores');
-            $table->foreign('redes_sociais_id')->references('id')->on('redes_sociais');
+            $table->foreign('avaliacaos_id')->references('id')->on('avaliacaos');
+            $table->foreign('servicos_id')->references('id')->on('servicos');
             $table->softDeletes();
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreateContemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contems');
+        Schema::dropIfExists('abrange__avaliacaos');
     }
 }

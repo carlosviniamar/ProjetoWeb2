@@ -18,6 +18,7 @@ class CreateConversasTable extends Migration
             $table->text('mensagem', 252);
             $table->foreign('cliente_id')->references('id')->on('clientes');
             $table->foreign('prestadores_id')->references('id')->on('prestadores');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

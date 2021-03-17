@@ -11,9 +11,9 @@ class Prestadores extends Model
     use HasFactory;
     use SoftDeletes;
 
-    public function pessoa()
+    public function endereco()
     {
-       
+        return $this->hasMany(Produtos::class, 'endereco_id');
     }
 
 
